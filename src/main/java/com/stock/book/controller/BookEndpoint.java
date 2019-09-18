@@ -1,8 +1,6 @@
 package com.stock.book.controller;
 
-import com.adrianbooks.springsoap.gen.Book;
-import com.adrianbooks.springsoap.gen.GetBooksRequest;
-import com.adrianbooks.springsoap.gen.GetBooksResponse;
+import com.adrianbooks.springsoap.gen.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -18,16 +16,26 @@ public class BookEndpoint {
     public BookEndpoint() {
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getBooksRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addBookRequest")
     @ResponsePayload
-    public GetBooksResponse getBooks(@RequestPayload GetBooksRequest request) {
-        GetBooksResponse response = new GetBooksResponse();
-        Book book = new Book();
+    public AddBookResponse getBooks(@RequestPayload AddBookRequest request) {
+        AddBookResponse response = new AddBookResponse();
+        response.setRespCode(200);
+        /*Book book = new Book();
         book.setId(1);
         book.setAuthors("J.R.R. Tolkien");
         book.setDescription("Ksiazka o pierscieniu");
         book.setTitle("Wladca pierscieni");
-        response.setBook(book);
+        response.setBook(book);*/
+
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getBooksRequest")
+    @ResponsePayload
+    public GetBooksResponse getBooks(@RequestPayload GetBooksRequest request) {
+        GetBooksResponse response = new GetBooksResponse();
+        response.setBook(null);
 
         return response;
     }

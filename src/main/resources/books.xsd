@@ -2,12 +2,23 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.adrianBooks.com/springsoap/gen"
            targetNamespace="http://www.adrianBooks.com/springsoap/gen" elementFormDefault="qualified">
 
-    <xs:element name="getBooksRequest">
+    <xs:element name="addBookRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
+                <xs:element name="newBook" type="tns:book"/>
             </xs:sequence>
         </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="respCode" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksRequest">
     </xs:element>
 
     <xs:element name="getBooksResponse">
